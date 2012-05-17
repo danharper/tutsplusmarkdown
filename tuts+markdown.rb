@@ -21,6 +21,10 @@ class TutsMarkdown < Redcarpet::Render::HTML
 		"\n[#{language}]#{code}[/#{language}]\n"
 	end
 
+	def image(link, title, alt_text)
+		"\n<div class='tutorial_image'><img src='#{link}' alt='#{alt_text}' title='#{title}' border='0'></div>\n"
+	end
+
 	def header(text, header_level)
 		header_level = 2 if header_level == 1
 		elem = "\n"
