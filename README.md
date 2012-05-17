@@ -11,6 +11,13 @@ $ ruby tuts+markdown.rb article.md
 # 'article.md' converted and saved to 'article.html'
 ```
 
+Or specify an output filename yourself:
+
+```sh
+$ ruby tuts+markdown.rb article.md output.html
+# 'article.md' converted and saved to 'output.html'
+```
+
 ### Why?
 
 I prefer to write articles in Markdown. I keep all my articles in a private Git repo, on GitHub where they can be previewed. I find the GitHub way of delimiting code blocks best.
