@@ -1,6 +1,8 @@
 ## Tuts+ Markdown
 
-Converts GitHub Flavoured Markdown to Tuts+ HTML markup.
+Converts GitHub Flavoured Markdown to Tuts+ HTML markup. Uses [Redcarpet](https://github.com/tanoku/redcarpet) for Markdown processing, with some customisations made for Tuts+ sites.
+
+Ensure you have the Redcarpet gem before using! `(sudo) gem install redcarpet`.
 
 ### Usage
 
