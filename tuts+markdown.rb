@@ -1,11 +1,12 @@
 require 'redcarpet'
 
-unless ARGV.length == 1
-	puts "Syntax is: tuts+markdown.rb filename"
+unless (1..2) === ARGV.length
+	puts "Syntax is: ruby tuts+markdown.rb filename [output_filename]"
 	exit
 end
 
 filename = ARGV[0]
+output_filename = ARGV[1] || filename.chomp(File.extname(filename)) + '.html'
 
 unless File.exists?(filename)
 	puts "File '#{filename}' not found"
@@ -41,12 +42,10 @@ contents.gsub!(/(\A|^$\n)(^\w[^\n]*\n)(^\w[^\n]*$)+/m) do |x|
 	x.gsub(/^(.+)$/, "\\1  ")
 end
 
-md = markdown.render(contents);
-
-output_filename = filename.chomp(File.extname(filename)) + '.html'
+converted = markdown.render(contents);
 
 File.open(output_filename, 'w+') do |f|
-	f.write(md)
+	f.write(converted)
 end
 
-puts "'#{filename}' converted and saved to '#{output_filename}'"
+puts "'#{filename}' converted and saved as '#{output_filename}'"
