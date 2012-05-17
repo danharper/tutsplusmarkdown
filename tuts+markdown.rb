@@ -18,7 +18,7 @@ contents = file.read
 
 class TutsMarkdown < Redcarpet::Render::HTML
 	def block_code(code, language)
-		"\n[#{language}]#{code}[#{language}]\n"
+		"\n[#{language}]#{code}[/#{language}]\n"
 	end
 
 	def header(text, header_level)
