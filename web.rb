@@ -13,7 +13,7 @@ class TutsMarkdown < Redcarpet::Render::HTML
 	def header(text, header_level)
 		header_level = 2 if header_level == 1
 		elem = "\n"
-		elem += "<br>\n" if header_level == 2
+		elem += "<hr>\n" if header_level == 2
 		elem += "<h#{header_level}>#{text}</h#{header_level}>"
 	end
 end
@@ -59,10 +59,10 @@ post '/' do
 
 	output_filename = filename.chomp(File.extname(filename)) + '.html'
 
-    # converted
-	response.headers['content_type'] = "text/html"
-	attachment(output_filename)
-	response.write(converted)
+    converted
+	# response.headers['content_type'] = "text/html"
+	# attachment(output_filename)
+	# response.write(converted)
 end
 
 __END__
@@ -208,6 +208,9 @@ body > img:first-child {
     width: 200px;
     height: 200px;
 }
+body > hr:first-of-type {
+    display: none;
+}
 body > h2:first-of-type {
     border-top: none;
     padding-top: 0;
@@ -234,9 +237,9 @@ body > p.desc + p {
 form {
     margin: 20px 0;
 }
-h2 {
-    border-top: 1px solid #eaeaea;
-    padding-top: 15px;
+hr {
+    border-bottom-color: #eaeaea;
+    margin: 15px 0;
 }
 .tutorial_image {
     background-color: #F7F7F7;
