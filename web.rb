@@ -32,14 +32,14 @@ def convert(contents)
 		x.gsub(/^(.+)$/, "\\1  ")
 	end
 
-    converted = markdown.render(contents)
+	converted = markdown.render(contents)
 
-    converted.gsub!('<p><!-- start img -->', '')
-    converted.gsub!('<!-- end img --></p>', '')
+	converted.gsub!('<p><!-- start img -->', '')
+	converted.gsub!('<!-- end img --></p>', '')
 end
 
 get '/' do
-    @title = 'Tuts+ Markdown Converter'
+	@title = 'Tuts+ Markdown Converter'
 	erb :upload, :layout => :template
 end
 
@@ -47,12 +47,12 @@ post '/' do
 	unless params[:upload] &&
 		   (tmpfile = params[:upload][:tempfile]) &&
 		   (filename = params[:upload][:filename])
-        @title = 'Tuts+ Markdown Converter'
-        @error = 'No file selected'
-        return erb :upload, :layout => :template
+		@title = 'Tuts+ Markdown Converter'
+		@error = 'No file selected'
+		return erb :upload, :layout => :template
 	end
 
-    @title = 'Tuts+ Tutorial'
+	@title = 'Tuts+ Tutorial'
 
 	file = File.open(tmpfile.path, 'rb')
 
@@ -62,7 +62,7 @@ post '/' do
 
 	output_filename = filename.chomp(File.extname(filename)) + '.html'
 
-    converted
+	converted
 	# response.headers['content_type'] = "text/html"
 	# attachment(output_filename)
 	# response.write(converted)
@@ -94,28 +94,28 @@ h5,
 h6,
 p,
 blockquote {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 body {
-    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-    color: #737373;
-    margin: 10px 10px 10px 20px;
+	font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
+	color: #737373;
+	margin: 10px 10px 10px 20px;
 }
 a {
-    color: #0069d6;
+	color: #0069d6;
 }
 a:hover {
-    color: #0050a3;
-    text-decoration: none;
+	color: #0050a3;
+	text-decoration: none;
 }
 a img {
-    border: none;
+	border: none;
 }
 p {
-    margin-bottom: 9px;
+	margin-bottom: 9px;
 }
 h1,
 h2,
@@ -123,155 +123,155 @@ h3,
 h4,
 h5,
 h6 {
-    color: #404040;
-    line-height: 36px;
+	color: #404040;
+	line-height: 36px;
 }
 h1 {
-    margin-bottom: 18px;
-    font-size: 30px;
+	margin-bottom: 18px;
+	font-size: 30px;
 }
 h2 {
-    font-size: 24px;
+	font-size: 24px;
 }
 h3 {
-    font-size: 18px;
+	font-size: 18px;
 }
 h4 {
-    font-size: 16px;
+	font-size: 16px;
 }
 h5 {
-    font-size: 14px;
+	font-size: 14px;
 }
 h6 {
-    font-size: 13px;
+	font-size: 13px;
 }
 hr {
-    margin: 0 0 19px;
-    border: 0;
-    border-bottom: 1px solid #aaa;
+	margin: 0 0 19px;
+	border: 0;
+	border-bottom: 1px solid #aaa;
 }
 blockquote {
-    padding: 13px 13px 21px 15px;
-    margin-bottom: 18px;
-    font-family:georgia,serif;
-    font-style: italic;
+	padding: 13px 13px 21px 15px;
+	margin-bottom: 18px;
+	font-family:georgia,serif;
+	font-style: italic;
 }
 blockquote:before {
-    content:"\201C";
-    font-size:40px;
-    margin-left:-10px;
-    font-family:georgia,serif;
-    color:#eee;
+	content:"\201C";
+	font-size:40px;
+	margin-left:-10px;
+	font-family:georgia,serif;
+	color:#eee;
 }
 blockquote p {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 18px;
-    margin-bottom: 0;
-    font-style: italic;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 18px;
+	margin-bottom: 0;
+	font-style: italic;
 }
 code, pre {
-    padding: 0 3px 2px;
-    font-family: Monaco, Andale Mono, Courier New, monospace;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+	padding: 0 3px 2px;
+	font-family: Monaco, Andale Mono, Courier New, monospace;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 code {
-    background-color: #fee9cc;
-    color: rgba(0, 0, 0, 0.75);
-    padding: 1px 3px;
-    font-size: 12px;
+	background-color: #fee9cc;
+	color: rgba(0, 0, 0, 0.75);
+	padding: 1px 3px;
+	font-size: 12px;
 }
 pre {
-    display: block;
-    padding: 14px;
-    margin: 0 0 18px;
-    line-height: 16px;
-    font-size: 11px;
-    border: 1px dashed #ccc;
-    border: 1px dashed rgba(0, 0, 0, 0.15);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+	display: block;
+	padding: 14px;
+	margin: 0 0 18px;
+	line-height: 16px;
+	font-size: 11px;
+	border: 1px dashed #ccc;
+	border: 1px dashed rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }
 pre code {
-    background-color: #fdfdfd;
-    color:#737373;
-    font-size: 11px;
+	background-color: #fdfdfd;
+	color:#737373;
+	font-size: 11px;
 }
 
 body > img:first-child {
-    border: 5px solid #F0F0F0;
-    float: left;
-    margin: 0 10px 10px 0;
-    width: 200px;
-    height: 200px;
+	border: 5px solid #F0F0F0;
+	float: left;
+	margin: 0 10px 10px 0;
+	width: 200px;
+	height: 200px;
 }
 body > hr:first-of-type {
-    display: none;
+	display: none;
 }
 body > h2:first-of-type {
-    border-top: none;
-    padding-top: 0;
+	border-top: none;
+	padding-top: 0;
 }
 body > p:first-of-type {
-    color: #888;
-    font-size: 1.2em;
-    font-style: italic;
-    line-height: 1.4em;
-    margin-top: 10px;
+	color: #888;
+	font-size: 1.2em;
+	font-style: italic;
+	line-height: 1.4em;
+	margin-top: 10px;
 }
 body > p.desc {
-    font-style: normal;
+	font-style: normal;
 }
 body > p:first-of-type + p {
-    border-top: 1px solid #eaeaea;
-    clear: both;
-    padding-top: 15px;
+	border-top: 1px solid #eaeaea;
+	clear: both;
+	padding-top: 15px;
 }
 body > p.desc + p {
-    border-top: none;
-    padding: 0;
+	border-top: none;
+	padding: 0;
 }
 form {
-    margin: 20px 0;
+	margin: 20px 0;
 }
 hr {
-    border-bottom-color: #eaeaea;
-    margin: 15px 0;
+	border-bottom-color: #eaeaea;
+	margin: 15px 0;
 }
 .tutorial_image {
-    background-color: #F7F7F7;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 10px;
+	background-color: #F7F7F7;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+	padding: 10px;
+	text-align: center;
+	margin-bottom: 10px;
 }
 .tutorial_image img {
-    border: 1px solid #eaeaea;
+	border: 1px solid #eaeaea;
 }
 
 @media screen and (min-width: 768px) {
-    body {
-        width: 748px;
-        margin:10px auto;
-    }
+	body {
+		width: 748px;
+		margin:10px auto;
+	}
 }
 </style>
 <title><%= @title %></title>
 </head>
 <body>
 
-    <% if @error %>
-        <p><%= @error %></p>
-    <% end %>
+	<% if @error %>
+		<p><%= @error %></p>
+	<% end %>
 
-    <%= yield %>
+	<%= yield %>
 
 </body>
 </html>
