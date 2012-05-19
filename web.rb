@@ -7,7 +7,7 @@ class TutsMarkdown < Redcarpet::Render::HTML
 	end
 
 	def image(link, title, alt_text)
-		"\n<div class='tutorial_image'><img src='#{link}' alt='#{alt_text}' title='#{title}' border='0'></div>\n"
+		"<!-- start img --><div class='tutorial_image'><img src='#{link}' alt='#{alt_text}' title='#{title}' border='0'></div><!-- end img -->"
 	end
 
 	def header(text, header_level)
@@ -32,7 +32,10 @@ def convert(contents)
 		x.gsub(/^(.+)$/, "\\1  ")
 	end
 
-	markdown.render(contents);
+    converted = markdown.render(contents)
+
+    converted.gsub!('<p><!-- start img -->', '')
+    converted.gsub!('<!-- end img --></p>', '')
 end
 
 get '/' do
