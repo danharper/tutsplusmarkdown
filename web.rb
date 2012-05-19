@@ -62,10 +62,10 @@ post '/' do
 
 	output_filename = filename.chomp(File.extname(filename)) + '.html'
 
-	converted
-	# response.headers['content_type'] = "text/html"
-	# attachment(output_filename)
-	# response.write(converted)
+	# converted
+	response.headers['content_type'] = "text/html"
+	attachment(output_filename)
+	response.write(converted)
 end
 
 __END__
