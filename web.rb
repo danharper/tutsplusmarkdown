@@ -3,6 +3,7 @@ require 'redcarpet'
 
 class TutsMarkdown < Redcarpet::Render::HTML
 	def block_code(code, language)
+		language = 'text' unless language
 		"\n[#{language}]#{code}[/#{language}]\n"
 	end
 
