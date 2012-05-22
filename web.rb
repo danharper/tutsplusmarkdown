@@ -81,7 +81,7 @@ __END__
 	<input type="file" name="upload">
 	<input type="submit" value="Convert">
 </form>
-<p><small>This app is open source. Find it on <a href="https://github.com/danharper/tutsplusmarkdown">GitHub</a>.</small></p>
+<p><small>This app is open source. Find it on <a href="https://github.com/danharper/tutsplusmarkdown">GitHub</a>.<br><a href="https://github.com/danharper/tutsplusmarkdown/issues">Report a Bug</a> &mdash; by <a href="http://danharper.me">Dan Harper</a>.</p>
 
 @@ template
 <!doctype html>
