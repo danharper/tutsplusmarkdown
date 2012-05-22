@@ -36,6 +36,8 @@ def convert(contents)
 
 	converted.gsub!('<p><!-- start img -->', '')
 	converted.gsub!('<!-- end img --></p>', '')
+
+	converted
 end
 
 get '/' do
