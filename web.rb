@@ -207,7 +207,7 @@ pre code {
 	font-size: 11px;
 }
 
-body > img:first-child {
+body > .tutorial_image:first-child > img {
 	border: 5px solid #F0F0F0;
 	float: left;
 	margin: 0 10px 10px 0;
