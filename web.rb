@@ -61,7 +61,7 @@ post '/' do
 
 	contents = file.read
 	converted = convert(contents)
-	converted = erb converted, :layout => :template
+	# converted = erb converted, :layout => :template
 
 	output_filename = filename.chomp(File.extname(filename)) + '.html'
 
